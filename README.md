@@ -9,9 +9,11 @@ To use this app on a Mac, follow these steps:
 	1. Open the Terminal app (which can be found in the Applications folder). 
 	2. Enter the following lines into the command line, one by one, hitting 'Enter' after each line:
 	
-	R
-	install.packages('shiny')
-	shiny::runUrl(“https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip”)
+```
+R
+install.packages('shiny')
+shiny::runUrl(“https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip”)
+```
 
 The app should then appear in your web browser window shortly. 
 
