@@ -100,19 +100,19 @@ server <- function(input, output){
         }  
       } else if (input$task == "Explore DEGs between groups"){
         if (!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P5 - Myelinated", "P5 - Unmyelinated"))){
-          p5m.p5u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          p5m.p5u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } else if ((!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P5 - Myelinated", "P0 - Myelinated")))){
-          p5m.p0m %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          p5m.p0m %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } else if ((!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P5 - Myelinated", "P0 - Unmyelinated")))){
-          p5m.p0u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          p5m.p0u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } else if ((!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P5 - Unmyelinated", "P0 - Myelinated")))){
-          p5u.p0m %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          p5u.p0m %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } else if ((!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P5 - Unmyelinated", "P0 - Unmyelinated")))){
-          p5u.p0u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          p5u.p0u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } else if ((!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P0 - Myelinated", "P0 - Unmyelinated")))){
-          p0m.p0u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          p0m.p0u %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } else if ((!is.null(input$comp2) & length(input$comp2) == 4 & all(input$comp2 %in% c("P5 - Myelinated", "P5 - Unmyelinated", "P0 - Myelinated", "P0 - Unmyelinated")))){
-          all.groups %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_logFC) >= input$logfc)
+          all.groups %>% select(-1) %>% filter(p_val_adj < 0.001) %>%  filter(abs(avg_log2FC) >= input$logfc)
         } 
         } else {
       }
