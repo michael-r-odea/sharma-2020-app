@@ -1,4 +1,4 @@
-# Sharma et al. 2020 P0 & P5 DRG scRNA-seq Data Visualization App
+# Sharma et al. 2020 Data Visualization App
 
 This is a Shiny application for exploring the P0 and P5 mouse DRG scRNA-sequencing data from [Sharma et al. 2020](https://www.nature.com/articles/s41586-019-1900-1).
 
