@@ -25,5 +25,5 @@ The app should then appear in your web browser window shortly.
 To use this app in future instances, simply run the following lines from the Terminal:
 ```
 R
-shiny::runUrl("https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip")
+shiny::runUrl("https://dl.dropboxusercontent.com/s/emfqzh4wot0jz49/app.zip")
 ```
