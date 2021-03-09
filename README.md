@@ -16,7 +16,7 @@ install.packages(c('shiny', 'dplyr', 'shinycssloaders', 'ggplot2', 'Seurat', 'gr
 
 3. Finally, launch the app using the following line:
 ```
-shiny::runUrl("https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip")
+shiny::runUrl("https://dl.dropboxusercontent.com/s/emfqzh4wot0jz49/app.zip")
 ```
 
 The app should then appear in your web browser window shortly. 
