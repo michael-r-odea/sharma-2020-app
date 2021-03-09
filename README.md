@@ -1,24 +1,32 @@
-# sharma-2020-app
+# Sharma et al. 2020 P0 & P5 DRG scRNA-seq Data Visualization App
 
-This is a Shiny application for exploring the P0 and P5 mouse DRG scRNA-sequencing data from the Sharma et al., 2020 paper.
+This is a Shiny application for exploring the P0 and P5 mouse DRG scRNA-sequencing data from [Sharma et al. 2020](https://www.nature.com/articles/s41586-019-1900-1).
 
+## Usage & Dependencies
 To use this app, you must have R (version ≥4.0.0) installed. If you do not, install at https://cran.r-project.org/bin/macosx/
 
-To use this app on a Mac, follow these steps:
-	
-	1. Open the Terminal app (which can be found in the Applications folder). 
-	2. Enter the following lines into the command line, one by one, hitting 'Enter' after each line:
-	
+To use this app on a Mac/Linux, follow these steps:
+
+Open the Terminal app (which can be found in your Applications folder) and enter the following line: 
 ```
 R
-install.packages('shiny')
-install.packages('dplyr')
-install.packages('ggplot2')
-install.packages('Seurat')
-install.packages('gridExtra')
-install.packages('DT')
+```
+
+Next, install the required dependencies: (note: this step only needs to be performed once, the first time you use this app.) 
+```
+install.packages(c('shiny', 'dplyr', 'ggplot2', 'Seurat', 'gridExtra', 'DT'), repos = "https://cloud.r-project.org")
+```
+
+Finally, launch the app using the following line:
+```
 shiny::runUrl("https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip")
 ```
 
 The app should then appear in your web browser window shortly. 
 
+
+To use this app in future instances, simply run the lines
+```
+R
+shiny::runUrl("https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip")
+```
