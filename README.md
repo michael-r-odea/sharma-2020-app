@@ -5,7 +5,7 @@ This is a Shiny application for exploring the P0 and P5 mouse DRG scRNA-sequenci
 ## Usage
 To use this app, you must have R (version ≥4.0.0) installed. If you do not, install from [CRAN](https://cran.r-project.org/bin/macosx/). If you're unsure if you have the latest version of R, run 'R' in the Terminal and check the version number. 
 
-To use this app on a Mac/Linux, follow these steps: 
+To use this app on Mac/Linux, follow these steps: 
 
 1. Open the Terminal app (which can be found in your Applications folder) and enter the following line: 
 ```
