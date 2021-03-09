@@ -8,11 +8,14 @@
 #
 
 library(shiny)
+library(shinycssloaders)
 library(dplyr)
 library(Seurat)
 library(ggplot2)
 library(gridExtra)
 library(DT)
+
+
 
 sharma <- readRDS("sharma_slim.rds")
 gene.choices <- rownames(sharma)
@@ -24,6 +27,11 @@ p5m.p5u <- readRDS("p5m_p5u.rds")
 p5u.p0m <- readRDS("p5u_p0m.rds")
 p5u.p0u <- readRDS("p5u_p0u.rds")
 p0m.p0u <-readRDS("p0m_p0u.rds")
+
+# define order of clusterings
+my_levels <- c("P5 - Myelinated", "P5 - Unmyelinated", "P0 - Myelinated", "P0 - Unmyelinated")
+sharma@active.ident <- factor(x = sharma@active.ident, levels = my_levels)
+
 
 
 # Define UI for application
@@ -50,9 +58,9 @@ ui <- fluidPage(
               sliderInput("logfc", "Log2 Fold-Change Threshold:", min = 0, max = 1, step = 0.05, value = 0.10, round = -2))),
 
         mainPanel(
-          plotOutput("general_plots"),
-          plotOutput("expression_plots"),
-          DT::dataTableOutput("expression_table")
+          plotOutput("general_plots") %>% withSpinner(color="#0dc5c1"),
+          plotOutput("expression_plots") %>% withSpinner(color="#0dc5c1"),
+          DT::dataTableOutput("expression_table") %>% withSpinner(color="#0dc5c1")
     )
 ))
 
@@ -68,7 +76,7 @@ server <- function(input, output){
         if (!is.null(input$gene)) {
             p3 <- FeaturePlot(sharma, features = input$gene)
             p4 <- VlnPlot(sharma, features = input$gene, idents= input$comp1, pt.size = 0) + xlab("") + theme(legend.position = "none")
-            grid.arrange(p3, p4, ncol = 2)
+            grid.arrange(p3, p4, ncol = 2) 
         } else {
         }
         })
@@ -88,7 +96,7 @@ server <- function(input, output){
         } else if ((!is.null(input$comp1) & length(input$comp1) == 2 & all(input$comp1 %in% c("P0 - Myelinated", "P0 - Unmyelinated")))){
           p0m.p0u %>% select(-1) %>% filter(rownames(p0m.p0u) == input$gene)
         } else if ((!is.null(input$comp1) & length(input$comp1) == 4 & all(input$comp1 %in% c("P5 - Myelinated", "P5 - Unmyelinated", "P0 - Myelinated", "P0 - Unmyelinated")))){
-          all.groups %>% select(-1) %>% filter(rownames(all.groups) == input$gene)
+          FindAllMarkers(sharma, features = input$gene, test.use = "wilcox",min.pct = 0, min.cells.feature = 0, min.cells.group = 0, logfc.threshold = 0) %>% select(-1)
         }  
       } else if (input$task == "Explore DEGs between groups"){
         if (!is.null(input$comp2) & length(input$comp2) == 2 & all(input$comp2 %in% c("P5 - Myelinated", "P5 - Unmyelinated"))){

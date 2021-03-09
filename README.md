@@ -14,7 +14,7 @@ R
 
 Next, install the required dependencies: (note: this step only needs to be performed once, the first time you use this app) 
 ```
-install.packages(c('shiny', 'dplyr', 'ggplot2', 'Seurat', 'gridExtra', 'DT'), repos = "https://cloud.r-project.org")
+install.packages(c('shiny', 'dplyr', 'shinycssloaders', 'ggplot2', 'Seurat', 'gridExtra', 'DT'), repos = "https://cloud.r-project.org")
 ```
 
 Finally, launch the app using the following line:
