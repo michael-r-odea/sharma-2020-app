@@ -5,8 +5,8 @@ library(ggplot2)
 sharma <- readRDS("sharma_fourgroups.rds")
 
 
-#all.markers.wil <- FindAllMarkers(sharma, test.use = "wilcox",
-#                                   min.pct = 0, min.cells.feature = 0, min.cells.group = 0, logfc.threshold = 0)
+all.markers <- FindAllMarkers(sharma, test.use = "wilcox",
+              in.pct = 0, min.cells.feature = 0, min.cells.group = 0, logfc.threshold = 0)
 
 #all.markers <- all.markers.wil
 
