@@ -12,7 +12,7 @@ To use this app on a Mac, follow these steps:
 ```
 R
 install.packages('shiny')
-shiny::runUrl(“https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip”)
+shiny::runUrl("https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip")
 ```
 
 The app should then appear in your web browser window shortly. 
