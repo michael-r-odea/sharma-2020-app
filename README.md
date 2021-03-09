@@ -12,6 +12,11 @@ To use this app on a Mac, follow these steps:
 ```
 R
 install.packages('shiny')
+install.packages('dplyr')
+install.packages('ggplot2')
+install.packages('Seurat')
+install.packages('gridExtra')
+install.packages('DT')
 shiny::runUrl("https://github.com/michael-r-odea/sharma-2020-app/raw/main/app.zip")
 ```
 
